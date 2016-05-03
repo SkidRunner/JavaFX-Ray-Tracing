@@ -18,7 +18,7 @@
 package javafx.geometry;
 
 /**
- * A line segment which has an origin and a direction.
+ * A line which has an origin and a direction.
  *
  * @author SkidRunner
  */
@@ -38,7 +38,7 @@ public class Ray {
         return originX;
     }
 
-    private final double originX;
+    private double originX;
 
     /**
      * The origin y coordinate of this {@code Ray}.
@@ -49,7 +49,7 @@ public class Ray {
         return originY;
     }
 
-    private final double originY;
+    private double originY;
 
     /**
      * The origin z coordinate of this {@code Ray}.
@@ -60,29 +60,29 @@ public class Ray {
         return originZ;
     }
 
-    private final double originZ;
+    private double originZ;
 
     /**
      * The direction x coordinate of this {@code Ray}.
      *
      * @return the direction x coordinate
      */
-    public final double getDirectionX() {
+    public double getDirectionX() {
         return directionX;
     }
 
-    private final double directionX;
+    private double directionX;
 
     /**
      * The direction y coordinate of this {@code Ray}.
      *
      * @return the direction y coordinate
      */
-    public final double getDirectionY() {
+    public double getDirectionY() {
         return directionY;
     }
 
-    private final double directionY;
+    private double directionY;
 
     /**
      * The direction z coordinate of this {@code Ray}.
@@ -93,7 +93,7 @@ public class Ray {
         return directionZ;
     }
 
-    private final double directionZ;
+    private double directionZ;
 
     /**
      * Tests if this {@code Ray} intersects the interior of a specified Bounds, {@code b}.
@@ -103,6 +103,9 @@ public class Ray {
      */
     public boolean intersects(Bounds b) {
         if ((b == null) || b.isEmpty()) return false;
+        if (b instanceof BoundingSphere) {
+            //TODO: implement sphere ray intersection.
+        }
         return intersects(b.getMinX(), b.getMinY(), b.getMinZ(), b.getWidth(), b.getHeight(), b.getDepth());
     }
 
@@ -169,11 +172,11 @@ public class Ray {
         this.originY = originY;
         this.originZ = 0;
 
-        double length = Math.sqrt((directionX * directionX) + (directionY * directionY));
+        double l = Math.sqrt((directionX * directionX) + (directionY * directionY));
 
-        if (length != 0) {
-            this.directionX = directionX / length;
-            this.directionY = directionY / length;
+        if (l != 0) {
+            this.directionX = directionX / l;
+            this.directionY = directionY / l;
         } else {
             this.directionX = directionX;
             this.directionY = directionY;
@@ -196,12 +199,12 @@ public class Ray {
         this.originY = originY;
         this.originZ = originZ;
 
-        double length = Math.sqrt((directionX * directionX) + (directionY * directionY) + (directionZ * directionZ));
+        double l = Math.sqrt((directionX * directionX) + (directionY * directionY) + (directionZ * directionZ));
 
-        if (length != 0) {
-            this.directionX = directionX / length;
-            this.directionY = directionY / length;
-            this.directionZ = directionZ / length;
+        if (l != 0) {
+            this.directionX = directionX / l;
+            this.directionY = directionY / l;
+            this.directionZ = directionZ / l;
         } else {
             this.directionX = directionX;
             this.directionY = directionY;

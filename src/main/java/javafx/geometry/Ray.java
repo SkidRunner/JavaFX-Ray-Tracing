@@ -19,6 +19,7 @@ package javafx.geometry;
 
 /**
  * A line segment which has an origin and a direction.
+ *
  * @author SkidRunner
  */
 public class Ray {
@@ -30,44 +31,68 @@ public class Ray {
 
     /**
      * The origin x coordinate of this {@code Ray}.
+     *
      * @return the origin x coordinate
      */
-    public final double getOriginX() { return originX; }
+    public final double getOriginX() {
+        return originX;
+    }
+
     private final double originX;
 
     /**
      * The origin y coordinate of this {@code Ray}.
+     *
      * @return the origin y coordinate
      */
-    public final double getOriginY() { return originY; }
+    public final double getOriginY() {
+        return originY;
+    }
+
     private final double originY;
 
     /**
      * The origin z coordinate of this {@code Ray}.
+     *
      * @return the origin z coordinate
      */
-    public final double getOriginZ() { return originZ; }
+    public final double getOriginZ() {
+        return originZ;
+    }
+
     private final double originZ;
 
     /**
      * The direction x coordinate of this {@code Ray}.
+     *
      * @return the direction x coordinate
      */
-    public final double getDirectionX() { return directionX; }
+    public final double getDirectionX() {
+        return directionX;
+    }
+
     private final double directionX;
 
     /**
      * The direction y coordinate of this {@code Ray}.
+     *
      * @return the direction y coordinate
      */
-    public final double getDirectionY() { return directionY; }
+    public final double getDirectionY() {
+        return directionY;
+    }
+
     private final double directionY;
 
     /**
      * The direction z coordinate of this {@code Ray}.
+     *
      * @return the direction z coordinate
      */
-    public final double getDirectionZ() { return directionZ; }
+    public final double getDirectionZ() {
+        return directionZ;
+    }
+
     private final double directionZ;
 
     /**
@@ -124,7 +149,7 @@ public class Ray {
         tmin = Math.min(tmin, Math.min(tz1, tz2));
         tmax = Math.max(tmax, Math.max(tz1, tz2));
 
-        if(tmax >= 0) {
+        if (tmax >= 0) {
             return tmax > tmin;
         }
 
@@ -133,8 +158,9 @@ public class Ray {
 
     /**
      * Creates a new instance of 2D {@code Ray}.
-     * @param originX the origin x coordinate of this {@code Ray}.
-     * @param originY the origin y coordinate of this {@code Ray}.
+     *
+     * @param originX    the origin x coordinate of this {@code Ray}.
+     * @param originY    the origin y coordinate of this {@code Ray}.
      * @param directionX the direction x coordinate of this {@code Ray}.
      * @param directionY the direction y coordinate of this {@code Ray}.
      */
@@ -145,7 +171,7 @@ public class Ray {
 
         double l = Math.sqrt((directionX * directionX) + (directionY * directionY));
 
-        if(l != 0) {
+        if (l != 0) {
             this.directionX = directionX / l;
             this.directionY = directionY / l;
         } else {
@@ -157,9 +183,10 @@ public class Ray {
 
     /**
      * Creates a new instance of 3D {@code Ray}.
-     * @param originX the origin x coordinate of this {@code Ray}.
-     * @param originY the origin y coordinate of this {@code Ray}.
-     * @param originZ the origin z coordinate of this {@code Ray}.
+     *
+     * @param originX    the origin x coordinate of this {@code Ray}.
+     * @param originY    the origin y coordinate of this {@code Ray}.
+     * @param originZ    the origin z coordinate of this {@code Ray}.
      * @param directionX the direction x coordinate of this {@code Ray}.
      * @param directionY the direction y coordinate of this {@code Ray}.
      * @param directionZ the direction z coordinate of this {@code Ray}.
@@ -171,7 +198,7 @@ public class Ray {
 
         double l = Math.sqrt((directionX * directionX) + (directionY * directionY) + (directionZ * directionZ));
 
-        if(l != 0) {
+        if (l != 0) {
             this.directionX = directionX / l;
             this.directionY = directionY / l;
             this.directionZ = directionZ / l;
@@ -184,11 +211,13 @@ public class Ray {
 
     /**
      * Returns a hash code value for the point.
+     *
      * @return a hash code value for the point.
      */
-    @Override public boolean equals(Object obj) {
-        if(obj == this) return true;
-        if(obj instanceof Ray) {
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) return true;
+        if (obj instanceof Ray) {
             Ray other = (Ray) obj;
             return getOriginX() == other.getOriginX() && getOriginY() == other.getOriginY() && getOriginZ() == other.getOriginZ() && getDirectionX() == other.getDirectionX() && getDirectionY() == other.getDirectionY() && getDirectionZ() == other.getDirectionZ();
         } else return false;
@@ -196,9 +225,11 @@ public class Ray {
 
     /**
      * Returns a hash code value for the object.
+     *
      * @return a hash code value for the object.
      */
-    @Override public int hashCode() {
+    @Override
+    public int hashCode() {
         if (hash == 0) {
             long bits = 7L;
             bits = 31L * bits + Double.doubleToLongBits(getOriginX());
@@ -219,7 +250,8 @@ public class Ray {
      * implementations.
      * The returned string might be empty but cannot be {@code null}.
      */
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return "Ray ["
                 + "originX:" + getOriginX()
                 + ", originY:" + getOriginY()

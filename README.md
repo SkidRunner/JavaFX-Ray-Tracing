@@ -1,4 +1,5 @@
 # JavaFX Raytracer
+> Fast real-time raytracing for JavaFX
 
 At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
 
@@ -8,7 +9,7 @@ Show what the library does as concisely as possible, developers should be able t
 
 ## Motivation
 
-A short description of the motivation behind the creation and maintenance of the project. This should explain **why** the project exists.
+I have always been interested in raytraced graphics because using rasterization while fast and efficient seems silly if you goal is to emulate light.
 
 ## Installation
 

@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaFX Raytracer.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaFX Raytracer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaFX_Raytracer_main.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaFX_Raytracer_main.iml" group="JavaFX Raytracer" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaFX_Raytracer_test.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaFX_Raytracer_test.iml" group="JavaFX Raytracer" />
     </modules>
   </component>
 </project>

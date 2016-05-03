@@ -18,5 +18,9 @@
         <processorPath useClasspath="true" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="JavaFX_Raytracer_main" target="1.5" />
+      <module name="JavaFX_Raytracer_test" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

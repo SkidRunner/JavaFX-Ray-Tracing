@@ -169,11 +169,11 @@ public class Ray {
         this.originY = originY;
         this.originZ = 0;
 
-        double l = Math.sqrt((directionX * directionX) + (directionY * directionY));
+        double length = Math.sqrt((directionX * directionX) + (directionY * directionY));
 
-        if (l != 0) {
-            this.directionX = directionX / l;
-            this.directionY = directionY / l;
+        if (length != 0) {
+            this.directionX = directionX / length;
+            this.directionY = directionY / length;
         } else {
             this.directionX = directionX;
             this.directionY = directionY;
@@ -196,12 +196,12 @@ public class Ray {
         this.originY = originY;
         this.originZ = originZ;
 
-        double l = Math.sqrt((directionX * directionX) + (directionY * directionY) + (directionZ * directionZ));
+        double length = Math.sqrt((directionX * directionX) + (directionY * directionY) + (directionZ * directionZ));
 
-        if (l != 0) {
-            this.directionX = directionX / l;
-            this.directionY = directionY / l;
-            this.directionZ = directionZ / l;
+        if (length != 0) {
+            this.directionX = directionX / length;
+            this.directionY = directionY / length;
+            this.directionZ = directionZ / length;
         } else {
             this.directionX = directionX;
             this.directionY = directionY;

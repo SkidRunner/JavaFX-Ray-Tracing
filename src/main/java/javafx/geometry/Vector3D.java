@@ -23,7 +23,7 @@ package javafx.geometry;
  *
  * @author SkidRunner
  */
-public class Vector3D implements Cloneable, java.io.Serializable {
+public class Vector3D implements Comparable<Vector3D>, Cloneable, java.io.Serializable {
 
     // This class was created because Point3D in JavaFX does not allow
     // modification of coordinates after creation. Also when doing any math
@@ -394,16 +394,27 @@ public class Vector3D implements Cloneable, java.io.Serializable {
         double z1 = (this.x * y) - (this.y * x);
         return set(x1, y1, z1);
     }
-
+	
+	/**
+	 * Compares this object with the specified object for order.
+	 *
+	 * @param   The object to be compared
+	 * @return  a negative integer, zero, or a positive integer as this object
+	 *          is less than, equal to, or greater than the specified object
+     * @see     java.lang.Comparable#compareTo()
+	 */
+	@Override int compareTo(Vector3D vector) {
+		return magnitude() - vector.magnitude();
+	}
+	
     /**
      * Creates and returns a copy of this object.
      *
-     * @return  A clone of this instance.
+     * @return  A clone of this instance
      * @see     java.lang.Object#clone()
      * @see     java.lang.Cloneable
      */
-    @Override
-    public Vector3D clone() {
+    @Override public Vector3D clone() {
         try {
             return (Vector3D) super.clone();
         } catch (CloneNotSupportedException exception) {
@@ -414,12 +425,11 @@ public class Vector3D implements Cloneable, java.io.Serializable {
     /**
      * Returns a hash code value for the object.
      *
-     * @return  A hash code value for this object.
+     * @return  A hash code value for this object
      * @see     java.lang.Object#hashCode()
      * @see     java.util.Hashtable
      */
-    @Override
-    public int hashCode() {
+    @Override public int hashCode() {
         if (hashCode == 0) {
             long bits = 7L;
             bits = (31L * bits) + Double.doubleToLongBits(x);
@@ -433,14 +443,13 @@ public class Vector3D implements Cloneable, java.io.Serializable {
     /**
      * Indicates whether some other {@code Object} is "equal to" this one.
      *
-     * @param   object The reference {@code Object} with which to compare.
+     * @param   object The reference {@code Object} with which to compare
      * @return  {@code true} if this {@code Object} is the same as the
-     *          {@code object} argument; {@code false} otherwise.
+     *          {@code object} argument; {@code false} otherwise
      * @see     java.lang.Object#equals(java.lang.Object)
      * @see     java.util.Hashtable
      */
-    @Override
-    public boolean equals(Object object) {
+    @Override public boolean equals(Object object) {
         if (object == this) {
             return true;
         }
@@ -456,11 +465,10 @@ public class Vector3D implements Cloneable, java.io.Serializable {
     /**
      * Returns a string representation of the object in JSON format.
      *
-     * @return  A string representation of the object in JSON format.
+     * @return  A string representation of the object in JSON format
      * @see     java.lang.Object#toString()
      */
-    @Override
-    public String toString() {
+    @Override public String toString() {
         return "{'x':'" + x + "', 'y':'" + y + "', 'z':'" + z + "'}";
     }
 }

@@ -464,6 +464,6 @@ public class Vector3D implements Cloneable, java.io.Serializable {
      * @see     java.lang.Object#toString()
      */
     @Override public String toString() {
-        return "{'x':'" + x + "', 'y':'" + y + "', 'z':'" + z + "'}";
+        return "{'x':" + x + ", 'y':" + y + ", 'z':" + z + "}";
     }
 }

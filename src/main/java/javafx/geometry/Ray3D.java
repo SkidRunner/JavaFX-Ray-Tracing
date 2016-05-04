@@ -50,6 +50,7 @@ public class Ray3D implements Cloneable, java.io.Serializable {
             long bits = 7L;
             bits = (31L * bits) + origin.hashCode();
             bits = (31L * bits) + direction.hashCode();
+            bits = (31L * bits) + Double.doubleToLongBits(magnitude);
             hashCode = (int) (bits ^ (bits >> 32));
         }
         return hashCode;
@@ -76,6 +77,9 @@ public class Ray3D implements Cloneable, java.io.Serializable {
             return false;
         }
         if(!direction.equals(ray.origin)) {
+            return false;
+        }
+        if(magnitude != ray.magnitude) {
             return false;
         }
         return true;

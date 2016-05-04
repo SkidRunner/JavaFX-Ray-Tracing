@@ -438,16 +438,23 @@ public class Vector3D implements Cloneable, java.io.Serializable {
      * @see     java.util.Hashtable
      */
     @Override public boolean equals(Object object) {
+        if(!(object instanceof Vector3D)) {
+            return false;
+        }
         if (object == this) {
             return true;
         }
-
-        if (object instanceof Vector3D) {
-            Vector3D vector = (Vector3D) object;
-            return x == vector.x && y == vector.y && z == vector.z;
+        Vector3D vector = (Vector3D) object;
+        if(Double.compare(x, vector.x) != 0) {
+            return false;
         }
-
-        return false;
+        if(Double.compare(y, vector.y) != 0) {
+            return false;
+        }
+        if(Double.compare(z, vector.z) != 0) {
+            return false;
+        }
+        return true;
     }
 
     /**

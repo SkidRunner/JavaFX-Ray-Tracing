@@ -17,15 +17,55 @@
 
 package javafx.scene;
 
-import javafx.beans.NamedArg;
+import com.sun.javafx.sg.prism.NGGroup;
+import com.sun.javafx.sg.prism.NGNode;
+import com.sun.javafx.tk.TKScene;
+import com.sun.prism.*;
+import javafx.beans.DefaultProperty;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+
+import java.lang.reflect.Field;
+import java.nio.Buffer;
 
 /**
  * @author SkidRunner
  */
+@DefaultProperty("root")
 public class RaytracedScene extends Scene {
 
-    public RaytracedScene(@NamedArg("root") Parent root) {
-        super(root);
+    public RaytracedScene(Parent root) {
+        this(root, -1, -1, Color.WHITE);
     }
 
+    public RaytracedScene(Parent root, double width, double height) {
+        this(root, width, height, Color.WHITE);
+    }
+
+    public RaytracedScene(Parent root, Paint fill) {
+        this(root, -1, -1, fill);
+    }
+
+    public RaytracedScene(Parent root, double width, double height, Paint fill) {
+        super(root, width, height, fill);
+        try {
+            Field field = Node.class.getDeclaredField("peer");
+            field.setAccessible(true);
+            field.set(root, new RaytracedNGNode());
+        } catch (Exception exception) {
+            throw new RuntimeException(exception);
+        }
+    }
+
+    private class RaytracedNGNode extends NGNode {
+
+        @Override protected void renderContent(Graphics graphics) {
+
+        }
+
+        @Override protected boolean hasOverlappingContents() {
+            return false;
+        }
+
+    }
 }

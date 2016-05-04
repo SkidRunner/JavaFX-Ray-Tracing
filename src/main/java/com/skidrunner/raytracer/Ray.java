@@ -17,6 +17,8 @@ package com.skidrunner.raytracer;
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import com.sun.javafx.geom.PickRay;
+
 /**
  * @author SkidRunner
  */
@@ -33,7 +35,6 @@ public class Ray {
     private Vector3D skyColour;
 
     private float sphereReflectivity;
-    ;
 
     private long renderStart = 0;
     private long renderTime = 0;
@@ -41,7 +42,7 @@ public class Ray {
     private void init(String[] lines) {
         cols = lines[0].length();
         rows = lines.length;
-
+        com.sun.javafx.geom.PickRay p = new PickRay();
         data = new boolean[rows][cols];
 
         for (int r = 0; r < rows; r++) {

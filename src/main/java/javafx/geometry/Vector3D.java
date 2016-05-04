@@ -23,7 +23,7 @@ package javafx.geometry;
  *
  * @author SkidRunner
  */
-public class Vector3D implements Comparable<Vector3D>, Cloneable, java.io.Serializable {
+public class Vector3D implements Cloneable, java.io.Serializable {
 
     // This class was created because Point3D in JavaFX does not allow
     // modification of coordinates after creation. Also when doing any math
@@ -393,18 +393,6 @@ public class Vector3D implements Comparable<Vector3D>, Cloneable, java.io.Serial
         double y1 = (this.z * x) - (this.x * z);
         double z1 = (this.x * y) - (this.y * x);
         return set(x1, y1, z1);
-    }
-
-    /**
-     * Compares this object with the specified object for order.
-     *
-     * @param   The object to be compared
-     * @return  a negative integer, zero, or a positive integer as this object
-     *          is less than, equal to, or greater than the specified object
-     * @see     java.lang.Comparable#compareTo()
-     */
-    @Override int compareTo(Vector3D vector) {
-        return magnitude() - vector.magnitude();
     }
 
     /**

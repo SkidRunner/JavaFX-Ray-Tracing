@@ -15,7 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package javafx.geometry;
+package com.skidrunner.math;
 
 /**
  * A 3D value that usually represents a relative magnitude vector's x, y, z

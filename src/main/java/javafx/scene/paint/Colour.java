@@ -22,97 +22,97 @@ package javafx.scene.paint;
  * @author SkidRunner
  */
 public class Colour implements Cloneable, java.io.Serializable {
-	
-	// This class was created because Color in JavaFX does not allow
-	// modification of its components after creation.
-	
-	static final long serialVersionUID = 1;
-	
-	/**
-	 * The red component of the {@code Colour}.
-	 *
-	 * @defaultValue 0.0
-	 */
-	public double red;
-	
-	/**
-	 * The green component of the {@code Colour}.
-	 *
-	 * @defaultValue 0.0
-	 */
-	public double green;
-	
-	/**
-	 * The blue component of the {@code Colour}.
-	 *
-	 * @defaultValue 0.0
-	 */
-	public double blue;
-	
-	/**
-	 * The opacity component of the {@code Colour}.
-	 *
-	 * @defaultValue 0.0
-	 */
-	public double opacity;
-	
-	/**
-	 * Cache the hash code to make computing hashes faster.
-	 */
-	private int hashCode = 0;
-	
-	/**
-	 * Creates a new instance of {@code Colour}.
-	 */
-	public Colour() {
-		this.red = 0.0;
-		this.green = 0.0;
-		this.blue = 0.0;
-		this.opacity = 1.0;
-	}
-	
-	/**
-	 * Creates a new instance of {@code Colour}.
-	 * 
-	 * @param   colour The color components
-	 */
-	public Colour(Colour colour) {
-		this.red = colour.red;
-		this.green = colour.green;
-		this.blue = colour.blue;
-		this.opacity = colour.opacity;
-	}
-	
-	/**
-	 * Creates a new instance of {@code Colour}.
-	 * 
-	 * @param   red The red component
-	 * @param   green The green component
-	 * @param   blue The blue component
-	 * @param   opacity The opacity component
-	 */
-	public Colour(double red, double green, double blue, double opacity) {
-		this.red = red;
-		this.green = green;
-		this.blue = blue;
-		this.opacity = opacity;
-	}
-	
-	public Colour set(Colour colour) {
-		this.red = colour.red;
-		this.green = colour.green;
-		this.blue = colour.blue;
-		this.opacity = colour.opacity;
-	}
-	
-	public Colour set(double red, double green, double blue, double opacity) {
-		this.red = red;
-		this.green = green;
-		this.blue = blue;
-		this.opacity = opacity;
-	}
-	
-	/**
+    
+    // This class was created because Color in JavaFX does not allow
+    // modification of its components after creation.
+    
+    static final long serialVersionUID = 1;
+    
+    /**
+     * The red component of the {@code Colour}.
+     *
+     * @defaultValue 0.0
+     */
+    public double red;
+    
+    /**
+     * The green component of the {@code Colour}.
+     *
+     * @defaultValue 0.0
+     */
+    public double green;
+    
+    /**
+     * The blue component of the {@code Colour}.
+     *
+     * @defaultValue 0.0
+     */
+    public double blue;
+    
+    /**
+     * The opacity component of the {@code Colour}.
+     *
+     * @defaultValue 0.0
+     */
+    public double opacity;
+    
+    /**
+     * Cache the hash code to make computing hashes faster.
+     */
+    private int hashCode = 0;
+    
+    /**
+     * Creates a new instance of {@code Colour}.
+     */
+    public Colour() {
+        this.red = 0.0;
+        this.green = 0.0;
+        this.blue = 0.0;
+        this.opacity = 1.0;
+    }
+    
+    /**
+     * Creates a new instance of {@code Colour}.
+     * 
+     * @param   colour The color components
+     */
+    public Colour(Colour colour) {
+        this.red = colour.red;
+        this.green = colour.green;
+        this.blue = colour.blue;
+        this.opacity = colour.opacity;
+    }
+    
+    /**
+     * Creates a new instance of {@code Colour}.
+     * 
+     * @param   red The red component
+     * @param   green The green component
+     * @param   blue The blue component
+     * @param   opacity The opacity component
+     */
+    public Colour(double red, double green, double blue, double opacity) {
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
+        this.opacity = opacity;
+    }
+    
+    public Colour set(Colour colour) {
+        this.red = colour.red;
+        this.green = colour.green;
+        this.blue = colour.blue;
+        this.opacity = colour.opacity;
+    }
+    
+    public Colour set(double red, double green, double blue, double opacity) {
+        this.red = red;
+        this.green = green;
+        this.blue = blue;
+        this.opacity = opacity;
+    }
+    
+    /**
      * Creates and returns a copy of this object.
      *
      * @return  A clone of this instance
@@ -175,5 +175,5 @@ public class Colour implements Cloneable, java.io.Serializable {
     @Override public String toString() {
         return "{'red':" + red + ", 'green':" + green + ", 'blue':" + blue + ", 'opacity':" + opacity + "}";
     }
-	
+    
 }
